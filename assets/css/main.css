@@ -1,0 +1,41 @@
+@import './base.css';
+
+:root {
+	--color-white: #fff;
+
+	--fontSize-12: 12px;
+	--fontSize-14: 14px;
+	--fontSize-16: 16px;
+	--fontSize-20: 20px;
+	--fontSize-24: 24px;
+	--fontSize-32: 32px;
+
+    --weight-regular: 400;
+    --weight-medium: 500;
+    --weight-semibold: 600;
+    --weight-bold: 700;
+    --weight-black: 900;
+}
+
+/* HEADER */
+
+/* MAIN */
+
+/* FOOTER */
+
+/* MEDIA */
+@media(max-width: 1200px) {
+
+}
+@media(max-width: 960px) {
+
+}
+@media(max-width: 720px) {
+
+}
+@media(max-width: 540px) {
+
+}
+@media(max-width: 420px) {
+
+}
