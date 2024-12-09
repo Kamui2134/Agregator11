@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>GG Casino</title>
+		<title>GGCasino</title>
 		<link rel="stylesheet" href="./assets/css/main.css" />
 		<link rel="manifest" href="manifest.json" />
 		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
@@ -41,8 +41,74 @@
 				</button>
 			</div>
 		</header>
-		<main class="main"></main>
-		<footer class="footer"></footer>
+		<main class="main">
+			<section class="best-games">
+				<div class="best-games__description">
+					<p class="best-games__text"></p>
+					<h1 class="best-games__title"></h1>
+					<p class="best-games__disclaimer"></p>
+				</div>
+			</section>
+			<section class="games" id="#games"></section>
+			<section class="road-map"></section>
+		</main>
+		<footer class="footer">
+			<div class="footer__container">
+				<div class="footer__top">
+					<a class="header__logo-link" href="./index.html">
+						<img
+							class="header__logo"
+							src="./assets/images/logo.svg"
+							alt="logo"
+						/>
+						GG<strong class="header__logo-important">Casino</strong>
+					</a>
+					<a target="_parent" class="footer__contact" href="mailto:boomcpiasia@gmail.com"
+						>Contact Us For More Details</a
+					>
+					<div class="footer__companies">
+						<a href="https://www.gambleaware.org/">
+							<img
+								class="footer__company"
+								src="./assets/images/icons/begambleaware.svg"
+								alt="begambleaware"
+							/>
+						</a>
+						<a href="https://www.gamcare.org.uk/">
+							<img
+								class="footer__company"
+								src="./assets/images/icons/gamcare.svg"
+								alt="gamcare"
+							/>
+						</a>
+						<a href="https://www.gamstop.co.uk/"
+							><img
+								class="footer__company"
+								src="./assets/images/icons/gamstop.svg"
+								alt="gamstop"
+						/></a>
+						<a href=""  
+							><img
+								class="footer__company"
+								src="./assets/images/icons/plus18.svg"
+								alt="+18"
+						/></a>
+					</div>
+				</div>
+				<div class="footer__bottom">
+					<p class="footer__copyright">
+						GGCasino © 2024 | All rights reserved.
+					</p>
+					<div class="footer__policy-links">
+						<a class="footer__policy-link" href="/policy.html"
+							>Private Policy</a
+						>
+						<a class="footer__policy-link" href="/terms.html">Terms Of Use</a>
+						<a class="footer__policy-link" href="/cookie.html">Cookie Policy</a>
+					</div>
+				</div>
+			</div>
+		</footer>
 		<script>
 			for (let a of [...document.querySelectorAll('a')]) {
 				if (a.target === '_parent') {

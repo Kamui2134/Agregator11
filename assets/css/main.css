@@ -3,6 +3,8 @@
 :root {
 	--color-white: #fff;
 	--color-blue-1: #62c7ff;
+	--color-translucent-1: #eeeeee10;
+	--color-gray-1: #C6D5E9;
 
 	--fontSize-12: 12px;
 	--fontSize-14: 14px;
@@ -78,7 +80,78 @@
 
 /* MAIN */
 
+/* MAIN -> BEST-GAMES */
+
+/* MAIN -> GAMES */
+
 /* FOOTER */
+.footer {
+	width: 100%;
+	background-color: var(--color-translucent-1);
+	padding: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.footer__container {
+	width: min(1240px, 100%);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 40px;
+}
+.footer__top {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 20px;
+}
+.footer__contact {
+	color: var(--color-white);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: linear-gradient(#2A6BF2, #2D3794);
+	padding: 14px 70px;
+	border-radius: 10px;
+	text-wrap: nowrap;
+	width: max-content;
+}
+.footer__contact:active {
+	transform: scale(0.95);
+}
+.footer__companies {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-end;
+	gap: 10px;
+	width: 300px;
+}
+.footer__company {
+	height: 24px;
+}
+.footer__bottom {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.footer__copyright {
+	color: var(--color-gray-1);
+}
+.footer__policy-links {
+	display: flex;
+	gap: 10px;
+}
+.footer__policy-link {
+	color: var(--color-gray-1);
+}
+@media (hover: hover) {
+	.footer__policy-link:hover {
+		color: var(--color-white);
+	}
+}
 
 /* MEDIA */
 @media (max-width: 1200px) {
