@@ -8,6 +8,7 @@ const hrefs = [
 	'https://www.gamcare.org.uk/',
 	'https://www.gamstop.co.uk/',
 ]
+const alts = ['begambleaware', 'gamcare', 'gamstop']
 const srcs = [
 	'./assets/images/icons/begambleaware1.svg',
 	'./assets/images/icons/gamcare1.svg',
@@ -21,7 +22,7 @@ for (let i = 0; i < screenWidth; i += 195 * 3) {
 		const img = document.createElement('img')
 		img.className = 'companies__company'
 		img.src = srcs[j]
-		img.alt = 'icon'
+		img.alt = alts[j]
 		link.appendChild(img)
 		scrollerInner.appendChild(link)
 	}

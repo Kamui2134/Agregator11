@@ -7,6 +7,7 @@
 	--color-blue-3: #5fa5ea8c;
 	--color-blue-4: #5fa4ea;
 	--color-blue-5: #60aef0;
+	--color-blue-6: #4f80ef;
 	--color-translucent-1: #eeeeee10;
 	--color-gray-1: #c6d5e9;
 	--color-gray-2: #a9a9a9;
@@ -323,8 +324,13 @@
 .companies__scroller[data-animated='true'] .companies__scroller--inner {
 	width: max-content;
 	flex-wrap: nowrap;
-	animation: scroll var(--animation-duration, 70s)
+	animation: scroll var(--animation-duration, 60s)
 		var(--animation-direction, forwards) linear infinite;
+}
+@media (hover: hover) {
+	.companies__scroller[data-animated='true'] .companies__scroller--inner:hover {
+		animation-play-state: paused;
+	}
 }
 .companies__scroller[data-direction='left'] {
 	--animation-direction: forwards;
@@ -346,6 +352,47 @@
 	to {
 		transform: translate(calc(-50% - 0.5rem));
 	}
+}
+
+/* MAIN -> ABOUT-US */
+.about-us {
+	width: 100%;
+	padding: 0 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 80px;
+}
+.about-us__container {
+	width: min(1280px, 100%);
+	background-color: var(--color-translucent-1);
+	border: 1px solid var(--color-gray-1);
+	border-radius: 10px;
+	display: flex;
+	align-items: center;
+	gap: 120px;
+	padding: 20px 80px;
+}
+.about-us__img {
+	width: 430px;
+	height: 334px;
+	object-fit: contain;
+}
+.about-us__info {
+
+}
+.about-us__title {
+	color: var(--color-white);
+	font-size: var(--fontSize-40);
+	line-height: 1.5;
+	margin-bottom: 16px;
+}
+.about-us__important {
+	color: var(--color-blue-6);
+}
+.about-us__text {
+	color: var(--color-gray-2);
+	line-height: 1.5;
 }
 
 /* MAIN -> ROAD-MAP */
