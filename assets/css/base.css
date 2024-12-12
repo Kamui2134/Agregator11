@@ -54,6 +54,7 @@ address {
 html {
 	font-size: 16px;
 	scroll-behavior: smooth;
+	overscroll-behavior: contain;
 	line-height: 1;
 }
 body {

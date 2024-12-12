@@ -1,7 +1,7 @@
 {
-	"name": "GG Casino",
-	"short_name": "GG Casino",
-	"description": "GG Casino is the ultimate destination for an unparalleled gambling experience",
+	"name": "TopCasinio",
+	"short_name": "TopCasinio",
+	"description": "TopCasinio is the ultimate destination for an unparalleled gambling experience",
 	"start_url": "/",
 	"form_factor": ["small", "medium", "large"],
 	"display": "standalone",
