@@ -34,49 +34,11 @@ function addCompanies() {
 		}
 	}
 }
-addCompanies()
-
-const allCasinosCount = document.querySelector('.games__games').children.length
-
-function toggleBestGames() {
-	if (window.innerWidth <= 540 && document.querySelector('.games__games').children.length === allCasinosCount) {
-		const bestGames = document.querySelector('.best-games')
-		const games = document.querySelector('.games__games')
-		const bestCasino = games.firstElementChild.cloneNode(true)
-		const bestGameLogo = bestGames.querySelector('.best-games__logo')
-		const bestGameTitle = bestGames.querySelector('.best-games__game-title')
-		const bestGameBonus = bestGames.querySelector('.best-games__game-bonus')
-
-		const bestCasinoLogoClone = bestCasino.querySelector('.games__logo')
-		bestCasinoLogoClone.src = bestGameLogo.src
-		bestCasinoLogoClone.alt = bestGameLogo.alt
-		bestCasino.querySelector('.games__game-title').textContent =
-			bestGameTitle.textContent
-		bestCasino.querySelector(
-			'.games__game-text'
-		).textContent = `${bestGameTitle.textContent.toLocaleLowerCase()}.com`
-		bestCasino.querySelector('.games__bonus-text').textContent =
-			bestGameBonus.textContent
-		games.insertBefore(bestCasino, games.firstChild)
-	} else if (
-		window.innerWidth > 540 &&
-		document.querySelector('.games__games').children.length > allCasinosCount
-	) {
-		const games = document.querySelector('.games__games')
-		games.firstChild.remove()
-	}
-}
-toggleBestGames()
-
-window.addEventListener('resize', () => {
-	scrollerInner.innerHTML = ''
+if (document.querySelector('.companies')) {
 	addCompanies()
-	addAnimation()
-	toggleBestGames()
-})
-
-if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-	addAnimation()
+	if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+		addAnimation()
+	}
 }
 
 function addAnimation() {
@@ -106,3 +68,49 @@ headerNavLinks.forEach(link => {
 		headerNav.classList.toggle('active')
 	})
 })
+
+// BEST GAME IN GAMES
+
+function toggleBestGames() {
+	if (
+		window.innerWidth <= 540 &&
+		document.querySelector('.games__games').children.length === allCasinosCount
+	) {
+		const bestGames = document.querySelector('.best-games')
+		const games = document.querySelector('.games__games')
+		const bestCasino = games.firstElementChild.cloneNode(true)
+		const bestGameLogo = bestGames.querySelector('.best-games__logo')
+		const bestGameTitle = bestGames.querySelector('.best-games__game-title')
+		const bestGameBonus = bestGames.querySelector('.best-games__game-bonus')
+
+		const bestCasinoLogoClone = bestCasino.querySelector('.games__logo')
+		bestCasinoLogoClone.src = bestGameLogo.src
+		bestCasinoLogoClone.alt = bestGameLogo.alt
+		bestCasino.querySelector('.games__game-title').textContent =
+			bestGameTitle.textContent
+		bestCasino.querySelector(
+			'.games__game-text'
+		).textContent = `${bestGameTitle.textContent.toLocaleLowerCase()}.com`
+		bestCasino.querySelector('.games__bonus-text').textContent =
+			bestGameBonus.textContent
+		games.insertBefore(bestCasino, games.firstChild)
+	} else if (
+		window.innerWidth > 540 &&
+		document.querySelector('.games__games').children.length > allCasinosCount
+	) {
+		const games = document.querySelector('.games__games')
+		games.firstChild.remove()
+	}
+}
+let allCasinosCount = null
+if (document.querySelector('.games__games')) {
+	allCasinosCount = document.querySelector('.games__games').children.length
+	toggleBestGames()
+
+	window.addEventListener('resize', () => {
+		scrollerInner.innerHTML = ''
+		addCompanies()
+		addAnimation()
+		toggleBestGames()
+	})
+}
