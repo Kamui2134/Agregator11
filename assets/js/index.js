@@ -1,7 +1,6 @@
 'use strict'
 
 // INFINITE SCROLL
-
 const scrollerInner = document.querySelector('.companies__scroller--inner')
 const hrefs = [
 	'https://www.gambleaware.org/',
@@ -68,18 +67,17 @@ headerNavLinks.forEach(link => {
 })
 
 // BEST GAME IN GAMES
-
 function toggleBestGames() {
-	if (
-		window.innerWidth <= 540 &&
-		document.querySelector('.games__games').children.length === allCasinosCount
-	) {
+	if (window.innerWidth <= 540 && wasAdded === false) {
 		const bestGames = document.querySelector('.best-games')
 		const games = document.querySelector('.games__games')
 		const bestCasino = games.firstElementChild.cloneNode(true)
 		const bestGameLogo = bestGames.querySelector('.best-games__logo')
 		const bestGameTitle = bestGames.querySelector('.best-games__game-title')
 		const bestGameBonus = bestGames.querySelector('.best-games__game-bonus')
+		const bestGameAdvantages = bestGames.querySelectorAll(
+			'.best-games__advantage-text'
+		)
 
 		const bestCasinoLogoClone = bestCasino.querySelector('.games__logo')
 		bestCasinoLogoClone.src = bestGameLogo.src
@@ -91,24 +89,55 @@ function toggleBestGames() {
 		).textContent = `${bestGameTitle.textContent.toLocaleLowerCase()}.com`
 		bestCasino.querySelector('.games__bonus-text').textContent =
 			bestGameBonus.textContent
+		bestCasino.querySelectorAll('.games__advantage-text').forEach((advantage, index) => {
+			advantage.textContent = bestGameAdvantages[index].textContent
+		})
 		games.insertBefore(bestCasino, games.firstChild)
-	} else if (
-		window.innerWidth > 540 &&
-		document.querySelector('.games__games').children.length > allCasinosCount
-	) {
+		wasAdded = true
+	} else if (window.innerWidth > 540 && wasAdded === true) {
 		const games = document.querySelector('.games__games')
 		games.firstChild.remove()
+		wasAdded = false
+		while (gamesContainer.children.length > allCasinosCount) {
+			gamesContainer.removeChild(gamesContainer.lastChild)
+		}
 	}
 }
 let allCasinosCount = null
+let wasAdded = false
 if (document.querySelector('.games__games')) {
 	allCasinosCount = document.querySelector('.games__games').children.length
 	toggleBestGames()
 
 	window.addEventListener('resize', () => {
-		scrollerInner.innerHTML = ''
-		addCompanies()
-		addAnimation()
+		if (document.querySelector('.companies')) {
+			scrollerInner.innerHTML = ''
+			addCompanies()
+			addAnimation()
+		}
 		toggleBestGames()
 	})
+}
+
+// INFINITE SCROLL
+let gamesContainer = null
+let games = null
+if (document.querySelector('.games__games')) {
+	gamesContainer = document.querySelector('.games__games')
+}
+function checkScroll() {
+	const scrollLeft = gamesContainer.scrollLeft
+	const scrollWidth = gamesContainer.scrollWidth
+	const clientWidth = gamesContainer.clientWidth
+	games = Array.from(gamesContainer.children)
+	if (scrollLeft + clientWidth >= scrollWidth - 10) {
+		// 10 - это порог для добавления новых элементов
+		games.forEach(game => {
+			gamesContainer.appendChild(game.cloneNode(true))
+		})
+	}
+}
+
+if (document.querySelector('.games__games')) {
+	gamesContainer.addEventListener('scroll', checkScroll)
 }

@@ -363,6 +363,33 @@
 	color: var(--color-blue-5);
 	font-size: var(--fontSize-24);
 }
+.games__advantages {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	display: none;
+}
+.games__advantage {
+	position: relative;
+}
+.games__advantage-img {
+	content: '';
+	width: 8px;
+	height: 8px;
+	border-radius: 100px;
+	background-color: var(--color-blue-1);
+	display: block;
+	position: absolute;
+	top: 50%;
+	left: 10px;
+	transform: translateY(-50%);
+}
+.games__advantage-text {
+	color: var(--color-gray-1);
+	font-size: var(--fontSize-16);
+	padding-left: 30px;
+}
 
 /* MAIN -> COMPANIES */
 .companies {
@@ -903,9 +930,17 @@
 	}
 	.games__game {
 		grid-template-areas:
-			'logo name name name'
+			'logo logo name name'
 			'bonus bonus bonus bonus'
+			'advantages advantages advantages advantages'
 			'button button button button';
+	}
+	.games__logo {
+		width: 100%;
+		height: 100px;
+	}
+	.games__game-column--2 {
+		align-items: center;
 	}
 	.games__game-title {
 		font-size: var(--fontSize-20);
@@ -914,9 +949,18 @@
 	.games__game-text {
 		font-size: var(--fontSize-14);
 	}
+	.games__game-column--3 {
+		justify-content: center;
+	}
 	.games__game-column--4 {
 		justify-content: center;
 		align-items: center;
+	}
+	.games__advantages {
+		grid-area: advantages;
+		display: flex;
+		justify-content: space-around;
+		flex-grow: 100;
 	}
 	/* MAIN -> COMPANIES */
 	/* MAIN -> ABOUT-US */
@@ -996,18 +1040,22 @@
 	}
 	.games__logo {
 		width: 100%;
+		height: 100px;
 		padding: 0 20px;
 	}
 	.games__game {
 		padding: 20px 12px;
-		grid-template-areas:
-			'logo logo logo logo'
-			'name name name name'
-			'bonus bonus bonus bonus'
-			'button button button button';
+		display: flex;
+		flex-direction: column;
 	}
 	.games__game-title {
-		font-size: var(--fontSize-16);
+		font-size: var(--fontSize-24);
+	}
+	.games__game-column--2 {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 	}
 	.games__game-column--3 {
 		gap: 5px;
