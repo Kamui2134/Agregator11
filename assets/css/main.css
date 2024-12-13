@@ -367,7 +367,7 @@
 /* MAIN -> COMPANIES */
 .companies {
 	width: 100%;
-	padding: 46px 0;
+	padding: 30px 0;
 	background-color: var(--color-translucent-1);
 	margin-bottom: 80px;
 }
@@ -400,11 +400,11 @@
 }
 .companies__companies-list {
 	display: flex;
-	gap: 15px;
+	gap: 30px;
 }
 .companies__company {
-	height: 40px;
-	width: 180px;
+	height: 100px;
+	width: 100px;
 	object-fit: contain;
 	object-position: center;
 }

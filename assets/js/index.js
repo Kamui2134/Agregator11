@@ -8,29 +8,27 @@ const hrefs = [
 	'https://www.gamcare.org.uk/',
 	'https://www.gamstop.co.uk/',
 ]
-const alts = ['begambleaware', 'gamcare', 'gamstop']
+const alts = ['visa', 'mastercard', 'paypal', 'google-pay']
 const srcs = [
-	'./assets/images/icons/begambleaware1.svg',
-	'./assets/images/icons/gamcare1.svg',
-	'./assets/images/icons/gamstop1.svg',
+	'./assets/images/icons/visa.svg',
+	'./assets/images/icons/mastercard.svg',
+	'./assets/images/icons/paypal.svg',
+	'./assets/images/icons/google-pay.svg',
 ]
 
 function addCompanies() {
-	const screenWidth = window.innerWidth
 	let j = 0
-	for (let i = 0; i <= screenWidth; i += 195) {
-		const link = document.createElement('a')
-		link.href = hrefs[j]
-		const img = document.createElement('img')
-		img.className = 'companies__company'
-		img.src = srcs[j]
-		img.alt = alts[j]
-		link.appendChild(img)
-		scrollerInner.appendChild(link)
-		if (j < 2) {
-			j++
-		} else {
-			j = 0
+	const screenWidth = window.innerWidth
+	for (let i = 0; i <= screenWidth; i += 100 * 4) {
+		for (let j = 0; j < 4; j++) {
+			const link = document.createElement('a')
+			link.href = ''
+			const img = document.createElement('img')
+			img.className = 'companies__company'
+			img.src = srcs[j]
+			img.alt = alts[j]
+			link.appendChild(img)
+			scrollerInner.appendChild(link)
 		}
 	}
 }
@@ -46,7 +44,7 @@ function addAnimation() {
 	scroller.setAttribute('data-animated', true)
 
 	const scrollerContent = Array.from(scrollerInner.children)
-	scrollerContent.forEach(item => {
+	scrollerContent.forEach((item, index) => {
 		const duplicatedItem = item.cloneNode(true)
 		duplicatedItem.setAttribute('aria-hidden', true)
 		scrollerInner.appendChild(duplicatedItem)
