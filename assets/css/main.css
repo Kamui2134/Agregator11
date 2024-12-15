@@ -675,6 +675,7 @@
 .policy-main a {
 	display: inline;
 	text-decoration: underline;
+	word-break: break-all;
 }
 .policy-main h1 {
 	color: var(--color-blue-1);
